@@ -1,0 +1,12 @@
+{
+  "name": "@lyr-plus/components",
+  "version": "1.0.0",
+  "description": "LYR Plus composables",
+  "main": "index.ts",
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
