@@ -1,12 +1,17 @@
 <template>
-  <button :class="[ns.b(), ns.m(_type), ns.m(_size), ns.is('disabled', _disabled)]">
+  <button
+    ref="_ref"
+    :class="[ns.b(), ns.m(_type), ns.m(_size), ns.is('disabled', _disabled)]"
+    :disabled="_disabled"
+    @click="handleClick"
+  >
     <slot></slot>
   </button>
 </template>
 
 <script setup lang="ts">
 import { useNamespace } from '@lyr-plus/hooks'
-import type { ButtonProps } from './button'
+import { type ButtonProps, buttonEmits } from './button'
 import { useButton } from './use-button'
 
 defineOptions({
@@ -14,11 +19,14 @@ defineOptions({
 })
 
 const props = defineProps<ButtonProps>()
-console.log(props)
-
+const emit = defineEmits(buttonEmits)
 const ns = useNamespace('button')
+const { _ref, _size, _disabled, _type, handleClick } = useButton(props, emit)
 
-const { _size, _disabled, _type } = useButton(props)
+defineExpose({
+  ref: _ref,
+  size: _size
+})
 </script>
 
 <style lang="scss" scoped>
@@ -43,5 +51,13 @@ const { _size, _disabled, _type } = useButton(props)
   padding: 12px 20px;
   font-size: 14px;
   border-radius: 4px;
+
+  &.is-disabled {
+    color: var(--el-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--el-button-disabled-bg-color);
+    border-color: var(--el-button-disabled-border-color);
+  }
 }
 </style>

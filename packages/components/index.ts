@@ -1,5 +1,6 @@
 import type { App } from 'vue'
 import Button from './button'
+export * from './components'
 
 export const components = [Button]
 

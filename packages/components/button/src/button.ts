@@ -5,3 +5,9 @@ export interface ButtonProps {
   type?: string
   disabled?: boolean
 }
+
+export const buttonEmits = {
+  click: (evt: MouseEvent) => evt instanceof MouseEvent
+}
+
+export type ButtonEmits = typeof buttonEmits
