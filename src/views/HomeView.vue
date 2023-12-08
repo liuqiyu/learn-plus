@@ -16,6 +16,15 @@ function handleClick(evt: MouseEvent) {
 <template>
   <main>123</main>
   <div>
-    <LyrButton ref="button" type="primary" size="mini" disabled @click="handleClick">123</LyrButton>
+    <LyrButton ref="button" type="primary" size="small" disabled @click="handleClick"
+      >123</LyrButton
+    >
+
+    <LyrUl>
+      <LyrLi>123</LyrLi>
+      <LyrLi>123</LyrLi>
+      <LyrLi>123</LyrLi>
+      <LyrLi>123</LyrLi>
+    </LyrUl>
   </div>
 </template>
